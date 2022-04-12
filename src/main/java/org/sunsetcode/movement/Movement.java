@@ -1,4 +1,4 @@
-package org.sunsetcode;
+package org.sunsetcode.movement;
 
 public class Movement {
     private Movable movableObject;
@@ -8,7 +8,7 @@ public class Movement {
         this.movableObject = movableObject;
     }
 
-    public void execute()
+    public void execute() throws MovableException
     {
         movableObject.setPosition(
             Vector.plus(

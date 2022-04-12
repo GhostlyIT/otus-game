@@ -1,4 +1,4 @@
-package org.sunsetcode;
+package org.sunsetcode.movement;
 
 public class Vector
 {

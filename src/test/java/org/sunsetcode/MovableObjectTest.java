@@ -7,7 +7,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.sunsetcode.movement.*;
 
-public class MovementTest
+public class MovableObjectTest
 {
     private Movable movableObject;
 
@@ -42,8 +42,8 @@ public class MovementTest
         Movement movement = new Movement(movableObject);
         movement.execute();
 
-        Assert.assertEquals(5, movableObject.getPosition().getX(), 0.0);
-        Assert.assertEquals(8, movableObject.getPosition().getY(), 0.0);
+        Assert.assertEquals(5, movableObject.getPosition().getX());
+        Assert.assertEquals(8, movableObject.getPosition().getY());
     }
 
     @Test(expected = UndefinedPositionException.class)

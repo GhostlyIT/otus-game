@@ -2,20 +2,20 @@ package org.sunsetcode.movement;
 
 public class Vector
 {
-    private double x;
-    private double y;
+    private int x;
+    private int y;
 
-    public Vector(double x, double y)
+    public Vector(int x, int y)
     {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public int getY() {
         return y;
     }
 

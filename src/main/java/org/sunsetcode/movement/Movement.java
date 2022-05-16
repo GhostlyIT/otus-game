@@ -1,5 +1,7 @@
 package org.sunsetcode.movement;
 
+import org.sunsetcode.movement.exceptions.MovableException;
+
 public class Movement {
     private Movable movableObject;
 

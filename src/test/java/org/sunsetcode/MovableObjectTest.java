@@ -6,6 +6,9 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.sunsetcode.movement.*;
+import org.sunsetcode.movement.exceptions.MovableException;
+import org.sunsetcode.movement.exceptions.UndefinedPositionException;
+import org.sunsetcode.movement.exceptions.UndefinedVelocityException;
 
 public class MovableObjectTest
 {

@@ -1,4 +1,4 @@
-package org.sunsetcode.movement;
+package org.sunsetcode.movement.exceptions;
 
 public class MovableException extends Exception
 {

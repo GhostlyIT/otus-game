@@ -1,6 +1,8 @@
 package org.sunsetcode.movement;
 
-public class Rotate
+import org.sunsetcode.movement.exceptions.MovableException;
+
+public class Rotate implements Command
 {
     Rotable rotableObject;
 
@@ -9,7 +11,7 @@ public class Rotate
         this.rotableObject = rotableObject;
     }
 
-    public void execute()
+    public void execute() throws MovableException
     {
         rotableObject.setDirection(
             rotableObject.getDirection().next(rotableObject.getAngularVelocity())

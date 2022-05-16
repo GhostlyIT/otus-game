@@ -5,15 +5,17 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
-import org.sunsetcode.movement.*;
+import org.sunsetcode.movement.Direction;
+import org.sunsetcode.movement.Rotable;
+import org.sunsetcode.movement.Rotate;
+import org.sunsetcode.movement.exceptions.MovableException;
 
 public class RotableObjectTest
 {
     private Rotable rotableObject;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() throws MovableException {
         rotableObject = Mockito.mock(Rotable.class);
         Direction initDirection = new Direction(5);
 
@@ -36,7 +38,12 @@ public class RotableObjectTest
     public void directionChangedTest()
     {
         Rotate rotate = new Rotate(rotableObject);
-        rotate.execute();
+
+        try {
+            rotate.execute();
+        } catch (MovableException e) {
+            e.printStackTrace();
+        }
 
         Assert.assertEquals(4, rotableObject.getDirection().getCurrentDirection());
     }

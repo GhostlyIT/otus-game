@@ -2,7 +2,8 @@ package org.sunsetcode.movement;
 
 import org.sunsetcode.movement.exceptions.MovableException;
 
-public class Movement {
+public class Movement implements Command
+{
     private Movable movableObject;
 
     public Movement(Movable movableObject)

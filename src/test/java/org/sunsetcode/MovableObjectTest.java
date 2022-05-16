@@ -67,6 +67,8 @@ public class MovableObjectTest
     {
         ArgumentCaptor<Vector> vectorCapture = ArgumentCaptor.forClass(Vector.class);
         Mockito.doThrow(MovableException.class).when(movableObject).setPosition(vectorCapture.capture());
-        movableObject.setPosition(new Vector(123, 123));
+
+        Movement movement = new Movement(movableObject);
+        movement.execute();
     }
 }

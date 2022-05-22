@@ -1,4 +1,4 @@
-package org.sunsetcode.gameObject;
+package org.sunsetcode.gameobject;
 
 public interface UObject
 {

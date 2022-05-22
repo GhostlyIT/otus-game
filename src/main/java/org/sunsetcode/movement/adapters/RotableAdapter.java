@@ -1,6 +1,6 @@
 package org.sunsetcode.movement.adapters;
 
-import org.sunsetcode.gameObject.UObject;
+import org.sunsetcode.gameobject.UObject;
 import org.sunsetcode.movement.Direction;
 import org.sunsetcode.movement.Rotable;
 import org.sunsetcode.movement.exceptions.MovableException;

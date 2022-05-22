@@ -1,6 +1,6 @@
 package org.sunsetcode.movement.adapters;
 
-import org.sunsetcode.gameObject.UObject;
+import org.sunsetcode.gameobject.UObject;
 import org.sunsetcode.movement.Movable;
 import org.sunsetcode.movement.Vector;
 import org.sunsetcode.movement.exceptions.MovableException;

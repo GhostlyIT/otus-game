@@ -1,4 +1,4 @@
-package org.sunsetcode.movement;
+package org.sunsetcode.command;
 
 public interface Command
 {

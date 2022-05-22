@@ -1,12 +1,13 @@
-package org.sunsetcode.movement;
+package org.sunsetcode.command;
 
+import org.sunsetcode.movement.Rotable;
 import org.sunsetcode.movement.exceptions.MovableException;
 
-public class Rotate implements Command
+public class RotateCommand implements Command
 {
     Rotable rotableObject;
 
-    public Rotate(Rotable rotableObject)
+    public RotateCommand(Rotable rotableObject)
     {
         this.rotableObject = rotableObject;
     }

@@ -7,7 +7,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.sunsetcode.movement.Direction;
 import org.sunsetcode.movement.Rotable;
-import org.sunsetcode.movement.Rotate;
+import org.sunsetcode.command.RotateCommand;
 import org.sunsetcode.movement.exceptions.MovableException;
 
 public class RotableObjectTest
@@ -37,10 +37,10 @@ public class RotableObjectTest
     @Test
     public void directionChangedTest()
     {
-        Rotate rotate = new Rotate(rotableObject);
+        RotateCommand rotateCommand = new RotateCommand(rotableObject);
 
         try {
-            rotate.execute();
+            rotateCommand.execute();
         } catch (MovableException e) {
             e.printStackTrace();
         }

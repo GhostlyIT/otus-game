@@ -7,12 +7,12 @@ import org.sunsetcode.command.LogCommand;
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;
 
-public class ExceptionLogHandler implements Command
+public class LogHandler implements Command
 {
     private final Command command;
     private final Exception ex;
 
-    public ExceptionLogHandler(Command command, Exception ex)
+    public LogHandler(Command command, Exception ex)
     {
         this.command = command;
         this.ex = ex;

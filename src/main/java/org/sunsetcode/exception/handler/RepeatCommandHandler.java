@@ -7,11 +7,11 @@ import org.sunsetcode.command.RepeatTwiceCommand;
 
 import java.util.concurrent.BlockingQueue;
 
-public class ExceptionRepeatCommandHandler implements Command
+public class RepeatCommandHandler implements Command
 {
     private final Command command;
 
-    public ExceptionRepeatCommandHandler(Command command)
+    public RepeatCommandHandler(Command command)
     {
         this.command = command;
     }

@@ -6,8 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.sunsetcode.IoC.IoC;
 import org.sunsetcode.command.*;
-import org.sunsetcode.exception.handler.ExceptionLogHandler;
-import org.sunsetcode.exception.handler.ExceptionRepeatCommandHandler;
+import org.sunsetcode.exception.handler.LogHandler;
+import org.sunsetcode.exception.handler.RepeatCommandHandler;
 import org.sunsetcode.movement.Movable;
 import org.sunsetcode.movement.adapters.MovableAdapter;
 import org.sunsetcode.movement.exceptions.UndefinedPositionException;
@@ -66,7 +66,7 @@ public class ExceptionsHandlingTest
     public void exceptionHandlerLogCommandTest() throws Exception
     {
         IoC.<Command>resolve("IoC.Registry", "MoveCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionLogHandler((Command) args[0], (Exception) args[1])).execute();
+                (Function<Object[], Command>) (args) -> new LogHandler((Command) args[0], (Exception) args[1])).execute();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
 
@@ -90,10 +90,10 @@ public class ExceptionsHandlingTest
     public void exceptionHandlerRepeatAndLogCommandTest() throws Exception
     {
         IoC.<Command>resolve("IoC.Registry", "MoveCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionRepeatCommandHandler((Command) args[0])).execute();
+                (Function<Object[], Command>) (args) -> new RepeatCommandHandler((Command) args[0])).execute();
 
         IoC.<Command>resolve("IoC.Registry", "RepeatCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionLogHandler((Command) args[0], (Exception) args[1])).execute();
+                (Function<Object[], Command>) (args) -> new LogHandler((Command) args[0], (Exception) args[1])).execute();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
 
@@ -117,13 +117,13 @@ public class ExceptionsHandlingTest
     public void exceptionHandlerTwoRepeatAndLogCommandTest() throws Exception
     {
         IoC.<Command>resolve("IoC.Registry", "MoveCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionRepeatCommandHandler((Command) args[0])).execute();
+                (Function<Object[], Command>) (args) -> new RepeatCommandHandler((Command) args[0])).execute();
 
         IoC.<Command>resolve("IoC.Registry", "RepeatCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionRepeatCommandHandler((Command) args[0])).execute();
+                (Function<Object[], Command>) (args) -> new RepeatCommandHandler((Command) args[0])).execute();
 
         IoC.<Command>resolve("IoC.Registry", "RepeatTwiceCommand.UndefinedPositionException",
-                (Function<Object[], Command>) (args) -> new ExceptionLogHandler((Command) args[0], (Exception) args[1])).execute();
+                (Function<Object[], Command>) (args) -> new LogHandler((Command) args[0], (Exception) args[1])).execute();
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
         doAnswer(i -> {

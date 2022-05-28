@@ -1,11 +1,14 @@
-package org.sunsetcode.movement;
+package org.sunsetcode.command;
 
+import org.sunsetcode.movement.Movable;
+import org.sunsetcode.movement.Vector;
 import org.sunsetcode.movement.exceptions.MovableException;
 
-public class Movement {
+public class MoveCommand implements Command
+{
     private Movable movableObject;
 
-    public Movement(Movable movableObject)
+    public MoveCommand(Movable movableObject)
     {
         this.movableObject = movableObject;
     }

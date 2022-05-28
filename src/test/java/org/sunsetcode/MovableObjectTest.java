@@ -5,10 +5,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
-import org.sunsetcode.movement.*;
 import org.sunsetcode.movement.exceptions.MovableException;
 import org.sunsetcode.movement.exceptions.UndefinedPositionException;
 import org.sunsetcode.movement.exceptions.UndefinedVelocityException;
+import org.sunsetcode.movement.Movable;
+import org.sunsetcode.command.MoveCommand;
+import org.sunsetcode.movement.Vector;
 
 public class MovableObjectTest
 {
@@ -42,8 +44,8 @@ public class MovableObjectTest
 
     @Test
     public void testPositionChanged() throws MovableException {
-        Movement movement = new Movement(movableObject);
-        movement.execute();
+        MoveCommand moveCommand = new MoveCommand(movableObject);
+        moveCommand.execute();
 
         Assert.assertEquals(5, movableObject.getPosition().getX());
         Assert.assertEquals(8, movableObject.getPosition().getY());
@@ -53,16 +55,16 @@ public class MovableObjectTest
     public void testUndefinedPosition() throws MovableException
     {
         Mockito.when(movableObject.getPosition()).thenThrow(UndefinedPositionException.class);
-        Movement movement = new Movement(movableObject);
-        movement.execute();
+        MoveCommand moveCommand = new MoveCommand(movableObject);
+        moveCommand.execute();
     }
 
     @Test(expected = UndefinedVelocityException.class)
     public void testUndefinedVelocity() throws MovableException
     {
         Mockito.when(movableObject.getVelocity()).thenThrow(UndefinedVelocityException.class);
-        Movement movement = new Movement(movableObject);
-        movement.execute();
+        MoveCommand moveCommand = new MoveCommand(movableObject);
+        moveCommand.execute();
     }
 
     @Test(expected = MovableException.class)
@@ -71,7 +73,7 @@ public class MovableObjectTest
         ArgumentCaptor<Vector> vectorCapture = ArgumentCaptor.forClass(Vector.class);
         Mockito.doThrow(MovableException.class).when(movableObject).setPosition(vectorCapture.capture());
 
-        Movement movement = new Movement(movableObject);
-        movement.execute();
+        MoveCommand moveCommand = new MoveCommand(movableObject);
+        moveCommand.execute();
     }
 }

@@ -1,4 +1,6 @@
-package org.sunsetcode.command;
+package org.sunsetcode.command.exceptionhandling;
+
+import org.sunsetcode.command.Command;
 
 public class RepeatCommand implements Command
 {

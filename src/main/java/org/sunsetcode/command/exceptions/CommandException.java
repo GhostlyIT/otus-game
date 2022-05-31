@@ -1,12 +1,15 @@
 package org.sunsetcode.command.exceptions;
 
-import org.sunsetcode.command.Command;
-
 public class CommandException extends Exception
 {
     private final String commandName;
 
-    private final String message;
+    private String message = "";
+
+    public CommandException(String commandName)
+    {
+        this.commandName = commandName;
+    }
 
     public CommandException(String commandName, String message)
     {

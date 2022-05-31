@@ -12,7 +12,7 @@ public class BurnFuelCommand implements Command
     }
 
     @Override
-    public void execute() throws Exception
+    public void execute()
     {
         fuelTank.burn();
     }

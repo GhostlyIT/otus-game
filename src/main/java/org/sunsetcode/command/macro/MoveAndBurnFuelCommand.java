@@ -6,16 +6,17 @@ import org.sunsetcode.command.Command;
 import org.sunsetcode.command.MoveCommand;
 import org.sunsetcode.gameobject.FuelTank;
 import org.sunsetcode.gameobject.UObject;
+import org.sunsetcode.movement.Movable;
 import org.sunsetcode.movement.adapters.MovableAdapter;
 
 public class MoveAndBurnFuelCommand extends AbstractMacroCommand
 {
-    private final UObject uObject;
     private final FuelTank fuelTank;
+    private Movable movable;
 
-    public MoveAndBurnFuelCommand(UObject uObject, FuelTank fuelTank)
+    public MoveAndBurnFuelCommand(Movable movable, FuelTank fuelTank)
     {
-        this.uObject = uObject;
+        this.movable = movable;
         this.fuelTank = fuelTank;
     }
 
@@ -24,7 +25,7 @@ public class MoveAndBurnFuelCommand extends AbstractMacroCommand
     {
         return new Command[]{
             new CheckFuelCommand(fuelTank),
-            new MoveCommand(new MovableAdapter(uObject)),
+            new MoveCommand(movable),
             new BurnFuelCommand(fuelTank)
         };
     }

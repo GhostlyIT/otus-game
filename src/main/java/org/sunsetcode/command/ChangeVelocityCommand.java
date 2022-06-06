@@ -1,14 +1,13 @@
 package org.sunsetcode.command;
 
 import org.sunsetcode.gameobject.UObject;
-import org.sunsetcode.movement.Vector;
 
 public class ChangeVelocityCommand implements Command
 {
     private final UObject uObject;
-    private final Vector newVelocity;
+    private final int newVelocity;
 
-    public ChangeVelocityCommand(UObject uObject, Vector newVelocity)
+    public ChangeVelocityCommand(UObject uObject, int newVelocity)
     {
         this.uObject = uObject;
         this.newVelocity = newVelocity;

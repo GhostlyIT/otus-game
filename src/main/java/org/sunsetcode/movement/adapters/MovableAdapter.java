@@ -17,14 +17,14 @@ public class MovableAdapter implements Movable
 
     @Override
     public Vector getPosition() throws UndefinedPositionException {
-        return (Vector) o.getProperty("position");
+        return o.<Vector>getProperty("position");
     }
 
     @Override
     public Vector getVelocity() {
-        double d = (double) o.getProperty("direction");
-        int n = (int) o.getProperty("directionsNumber");
-        int v = (int) o.getProperty("velocity");
+        double d = o.<Double>getProperty("direction");
+        int n = o.<Integer>getProperty("directionsNumber");
+        int v = o.<Integer>getProperty("velocity");
 
         return new Vector(
             (int) (v * Math.cos(d / 360 * n)),

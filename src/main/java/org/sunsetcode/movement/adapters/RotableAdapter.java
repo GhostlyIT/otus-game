@@ -16,12 +16,12 @@ public class RotableAdapter implements Rotable
 
     @Override
     public Direction getDirection() {
-        return (Direction) o.getProperty("direction");
+        return (Direction) o.<Direction>getProperty("direction");
     }
 
     @Override
     public int getAngularVelocity() {
-        return (int) o.getProperty("angularVelocity");
+        return (int) o.<Integer>getProperty("angularVelocity");
     }
 
     @Override

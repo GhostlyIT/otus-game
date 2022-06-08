@@ -2,7 +2,7 @@ package org.sunsetcode.exception.handler;
 
 import org.sunsetcode.IoC.IoC;
 import org.sunsetcode.command.Command;
-import org.sunsetcode.command.LogCommand;
+import org.sunsetcode.command.exceptionhandling.LogCommand;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;

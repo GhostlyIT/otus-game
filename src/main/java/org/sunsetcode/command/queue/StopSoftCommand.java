@@ -1,5 +1,6 @@
-package org.sunsetcode.command;
+package org.sunsetcode.command.queue;
 
+import org.sunsetcode.command.Command;
 import org.sunsetcode.queue.QueueControl;
 
 public class StopSoftCommand implements Command

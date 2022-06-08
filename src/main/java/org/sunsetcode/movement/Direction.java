@@ -3,7 +3,7 @@ package org.sunsetcode.movement;
 public class Direction
 {
     private int currentDirection;
-    private final static int DIRECTIONS_NUMBER = 8;
+    public final static int DIRECTIONS_NUMBER = 8;
 
     public Direction(int currentDirection)
     {

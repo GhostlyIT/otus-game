@@ -1,7 +1,7 @@
 package org.sunsetcode.queue;
 
 import org.sunsetcode.command.Command;
-import org.sunsetcode.command.StopSoftCommand;
+import org.sunsetcode.command.queue.StopSoftCommand;
 
 import java.util.concurrent.BlockingQueue;
 

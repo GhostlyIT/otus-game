@@ -2,8 +2,8 @@ package org.sunsetcode.exception.handler;
 
 import org.sunsetcode.IoC.IoC;
 import org.sunsetcode.command.Command;
-import org.sunsetcode.command.RepeatCommand;
-import org.sunsetcode.command.RepeatTwiceCommand;
+import org.sunsetcode.command.exceptionhandling.RepeatCommand;
+import org.sunsetcode.command.exceptionhandling.RepeatTwiceCommand;
 
 import java.util.concurrent.BlockingQueue;
 

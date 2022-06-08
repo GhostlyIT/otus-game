@@ -1,6 +1,7 @@
 package org.sunsetcode.movement.adapters;
 
 import org.sunsetcode.gameobject.UObject;
+import org.sunsetcode.movement.Direction;
 import org.sunsetcode.movement.Movable;
 import org.sunsetcode.movement.Vector;
 import org.sunsetcode.movement.exceptions.MovableException;
@@ -17,18 +18,18 @@ public class MovableAdapter implements Movable
 
     @Override
     public Vector getPosition() throws UndefinedPositionException {
-        return (Vector) o.getProperty("position");
+        return o.<Vector>getProperty("position");
     }
 
     @Override
     public Vector getVelocity() {
-        double d = (double) o.getProperty("direction");
-        int n = (int) o.getProperty("directionsNumber");
-        int v = (int) o.getProperty("velocity");
+        Direction d = o.<Direction>getProperty("direction");
+        int n = Direction.DIRECTIONS_NUMBER;
+        int v = o.<Integer>getProperty("velocity");
 
         return new Vector(
-            (int) (v * Math.cos(d / 360 * n)),
-            (int) (v * Math.sin(d / 360 * n))
+            (int) (v * Math.cos((double) d.getCurrentDirection() / 360 * n)),
+            (int) (v * Math.sin((double) d.getCurrentDirection() / 360 * n))
         );
     }
 

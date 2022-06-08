@@ -1,6 +1,7 @@
-package org.sunsetcode.command;
+package org.sunsetcode.command.exceptionhandling;
 
 import org.sunsetcode.IoC.IoC;
+import org.sunsetcode.command.Command;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

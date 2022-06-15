@@ -1,5 +1,8 @@
 package org.sunsetcode.IoC;
 
+import org.sunsetcode.IoC.exception.ResolveDependencyException;
+import org.sunsetcode.IoC.exception.ScopeAlreadyExistException;
+import org.sunsetcode.IoC.exception.ScopeDoesntExistsException;
 import org.sunsetcode.command.Command;
 
 import java.util.*;
@@ -69,8 +72,11 @@ public class IoC
         }
 
         @Override
-        public void execute()
-        {
+        public void execute() throws ScopeAlreadyExistException {
+            if (scopes.get(name) != null) {
+                throw new ScopeAlreadyExistException();
+            }
+
             Scope newScope = new Scope(currentScope);
             currentScope = newScope;
             scopes.put(name, newScope);
@@ -87,9 +93,14 @@ public class IoC
         }
 
         @Override
-        public void execute()
-        {
-            currentScope = scopes.get(name);
+        public void execute() throws ScopeDoesntExistsException {
+            var scope = scopes.get(name);
+
+            if (scope == null) {
+                throw new ScopeDoesntExistsException();
+            }
+
+            currentScope = scope;
         }
     }
 }

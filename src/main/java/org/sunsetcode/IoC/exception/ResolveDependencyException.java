@@ -1,4 +1,4 @@
-package org.sunsetcode.IoC;
+package org.sunsetcode.IoC.exception;
 
 public class ResolveDependencyException extends RuntimeException
 {
